@@ -7,7 +7,7 @@ const execMmlsWithPromise = (filePath) => {
   return new Promise((resolve, reject) => {
     
     // Run MMLS and grab relevant data from output
-    child_process.exec(`C:\\sleuthkit-4.12.0-win32\\bin\\mmls.exe ${filePath}`, 
+    child_process.exec(`mmls ${filePath}`, 
       (err, stdout, stderr) => {
         if (err) {
           console.log("An error occurred! " + err);
