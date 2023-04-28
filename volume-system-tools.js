@@ -46,19 +46,18 @@ const getPartitionsAsync = async (filePath) => {
 }
   
 // Async/Await makes promises easier. Without it, we
-// would have to write:  
+// would have to wrap in another Promise:  
 
 // const getPartitionsWithPromises = () => {
 //   return new Promise((resolve, reject) => {
-//       sleuthkitVolumeSystemTools.mmls(filePath)
-//       .then(
-//         (output) => {
-//            processPartitionsOutputIntoFile(file, output);
-//            return output;
-//         },
-//       ) 
-//     }
-//   )
+//     sleuthkitVolumeSystemTools.mmls(filePath)
+//        .then((output) => {
+//           let file = {}
+//           processPartitionsOutputIntoFile(file, output);
+
+//           resolve(file);
+//         })
+//   })
 // }
 
 // So we would have to return another Promise, and pass
