@@ -28,7 +28,7 @@ const createWindow = () => {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   ipcMain.handle('volumeSystemTools:getPartitions', (e, ...args) => {
-    return volumeSystemTools.getPartitions(...args);
+    return volumeSystemTools.getPartitionsAsync(...args);
   })
 
   createWindow()

@@ -34,14 +34,30 @@ function processPartitionsOutputIntoFile(file, stdout) {
   }
 }
 
-const getPartitions = (filePath) => {
+const getPartitionsAsync = async (filePath) => {
   let file = {}
-
-  let output = sleuthkitVolumeSystemTools.mmls(filePath);
+  
+  // await reads the promise result
+  let output = await sleuthkitVolumeSystemTools.mmls(filePath);
 
   processPartitionsOutputIntoFile(file, output);
   
   return file;
 }
+  
+// Async/Await makes promises easier. Without it, we
+// would have to write:  
 
-exports.getPartitions = getPartitions;
+// const getPartitionsWithPromises = () => {
+//   return new Promise((resolve, reject) => {
+//       sleuthkitVolumeSystemTools.mmls(filePath)
+//       .then(
+//         (output) => output, // Handle resolve
+//         (error) => error // Handle reject
+//       ) 
+//     }
+//   )
+// }
+
+
+exports.getPartitionsAsync = getPartitionsAsync;
