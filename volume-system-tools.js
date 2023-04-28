@@ -52,12 +52,23 @@ const getPartitionsAsync = async (filePath) => {
 //   return new Promise((resolve, reject) => {
 //       sleuthkitVolumeSystemTools.mmls(filePath)
 //       .then(
-//         (output) => output, // Handle resolve
-//         (error) => error // Handle reject
+//         (output) => {
+//            processPartitionsOutputIntoFile(file, output);
+//            return output;
+//         },
 //       ) 
 //     }
 //   )
 // }
+
+// So we would have to return another Promise, and pass
+// a Promise to Main. But with Async/Await, we can just
+// pass the data.
+
+// NOTE: We don't have to change anything in Main, since ipcMain.handle() 
+// can also use a Promise
+
+// useful: https://stackoverflow.com/questions/29516390/how-can-i-access-the-value-of-a-promise
 
 
 exports.getPartitionsAsync = getPartitionsAsync;

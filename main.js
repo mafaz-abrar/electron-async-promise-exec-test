@@ -36,6 +36,13 @@ app.whenReady().then(() => {
     // reply to the remote caller. Otherwise, the return value of the listener will be used as
     // the value of the reply.
 
+    // This is important - getPartitionsAsync returns the actual data and not a Promise.
+    // Therefore, the actual data is passed to ipcRenderer. 
+
+    // NOTE: Even if getPartitionsWithPromises() was used, and a Promise was
+    // returned, the code would be the same as ipcMain passes the value of a
+    // Promise to ipcRenderer (see above)
+
     return volumeSystemTools.getPartitionsAsync(...args);
   })
 
