@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Hello World!</title>
+    <script src="renderer.js"></script>
+  </head>
+
+  <body>
+    <h1>Hello World!</h1>
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    Electron <span id="electron-version"></span>,
+    and TSK <span id="sleuthkit-version"></span>.
+
+    <p><label for="file-path-input">
+      Please enter a file path to a disk image:
+      <input type="text" name="file-path-input" id="file-path-input" />
+    </label></p>
+
+    <p><button id="get-partitions-btn">Get Partitions!</button></p>
+
+    <p>Here are the partitions in the disk image: </p>
+    <div id="file-partitions"></div>
+
+  </body>
+</html>

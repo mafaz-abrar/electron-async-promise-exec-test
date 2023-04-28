@@ -1,0 +1,15 @@
+{
+  "name": "aeas",
+  "version": "0.0.1",
+  "description": "Automated eForensics Analysis System",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron . --no-sandbox"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^24.1.1"
+  }
+}
