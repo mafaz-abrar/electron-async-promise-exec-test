@@ -19,7 +19,7 @@ const execMmlsWithPromise = (filePath) => {
           reject(stderr);
         }
 
-        console.log("Output is " + stdout);
+        console.log("Output is \n" + stdout);
         resolve(stdout);
       }
     );
